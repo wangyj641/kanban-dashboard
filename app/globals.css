@@ -94,6 +94,10 @@
     width: var(--sidebar-width);
   }
 
+  .h-sidebar {
+    height: var(--sidebar-height);
+  }
+
   .h-header {
     height: var(--header-height);
   }

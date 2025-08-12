@@ -33,21 +33,9 @@ import Image from 'next/image';
 
 export default function Sidebar({ currentProjectId, onProjectSelect }: SidebarProps) {
   return (
-    <div className="h-full w-sidebar bg-sidebar shadow-sidebar z-30">
+    <div className="h-sidebar w-sidebar bg-sidebar shadow-sidebar z-30">
       <div className="flex flex-col h-screen">
         {/* 满高 + 纵向布局 */}
-        {/* Logo Section */}
-        <div className="border-b border-gray-200 min-h-[80px] flex items-center justify-between px-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-              <Image src="/images/icon.png" alt="Logo" width={24} height={24} />
-            </div>
-            <span className="text-xl font-bold text-gray-900">Project M JJJ.</span>
-          </div>
-          <button className="p-0 m-0 bg-transparent border-none hover:bg-transparent focus:outline-none">
-            <Image src="/images/expand.png" alt="Logo" width={26} height={20} />
-          </button>
-        </div>
         <div className="flex-1 min-h-0 overflow-y-auto">
           {/* Navigation */}
           <nav className="flex-1 p-4">

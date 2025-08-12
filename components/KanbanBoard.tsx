@@ -35,7 +35,7 @@ export default function KanbanBoard() {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="flex gap-col-gap overflow-x-auto pb-6 pl-8 md:pl-12 lg:pl-16 min-w-0">
+      <div className="flex gap-col-gap overflow-x-auto pb-6 min-w-0">
         {columns.map((column) => (
           <KanbanColumn
             key={column.id}

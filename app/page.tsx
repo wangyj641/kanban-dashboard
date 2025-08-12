@@ -26,15 +26,11 @@ export default function Home() {
   const [currentProjectId, setCurrentProjectId] = useState('1');
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      <Sidebar currentProjectId={currentProjectId} onProjectSelect={setCurrentProjectId} />
-
-      {/* 右侧：套一个“内边距容器”，强制留空隙 */}
-      <div className="flex-1">
-        <div className="px-8 md:px-12 lg:px-16">
-          {' '}
-          {/* ← 这里是关键 */}
-          <Header />
+    <div className="min-h-screen bg-gray-50 flex-1">
+      <Header />
+      <div className="flex">
+        <Sidebar currentProjectId={currentProjectId} onProjectSelect={setCurrentProjectId} />
+        <div className="py-20 max-w-6xl mx-auto">
           <div className="mt-4">{projectPages[currentProjectId]}</div>
         </div>
       </div>
