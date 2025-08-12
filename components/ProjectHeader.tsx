@@ -1,13 +1,15 @@
 'use client';
 
-import { LinkIcon, RefreshIcon, ShareIcon, ListIcon, GridIcon, FilterIcon, CalendarIcon } from './icons';
+import { ShareIcon, ListIcon, GridIcon, FilterIcon, CalendarIcon } from './icons';
+
+import Image from 'next/image';
 
 export default function ProjectHeader() {
   const teamMembers = [
-    { id: '1', name: 'John', avatar: 'J', color: 'bg-blue-500' },
-    { id: '2', name: 'Sarah', avatar: 'S', color: 'bg-green-500' },
-    { id: '3', name: 'Mike', avatar: 'M', color: 'bg-purple-500' },
-    { id: '4', name: '+2', avatar: '+2', color: 'bg-gray-300' },
+    { id: '1', icon: '/images/someone1.png', color: 'bg-blue-500' },
+    { id: '2', icon: '/images/someone2.png', color: 'bg-green-500' },
+    { id: '3', icon: '/images/someone3.png', color: 'bg-purple-500' },
+    { id: '4', icon: '/images/someone4.png', color: 'bg-gray-300' },
   ];
 
   return (
@@ -17,29 +19,28 @@ export default function ProjectHeader() {
         <div className="flex items-center gap-3">
           <h1 className="text-3xl font-bold text-gray-900">Mobile App</h1>
           <div className="flex items-center gap-2">
-            <button className="btn-icon">
-              <LinkIcon />
+            <button className="p-0 m-0 bg-transparent border-none hover:bg-transparent focus:outline-none">
+              <Image src="/images/arrow-square-up.png" alt="Logo" width={30} height={30} />
             </button>
-            <button className="btn-icon">
-              <RefreshIcon />
+            <button className="p-0 m-0 bg-transparent border-none hover:bg-transparent focus:outline-none">
+              <Image src="/images/link.png" alt="Logo" width={30} height={30} />
             </button>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-4">
           {/* Team Members */}
           <div className="flex items-center gap-2">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
-                className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white text-sm font-medium border-2 border-white shadow-sm`}
-                title={member.name}
+                className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white font-medium shadow-sm border-none`}
               >
-                {member.avatar}
+                <Image src={member.icon} alt="Logo" width={30} height={30} />
               </div>
             ))}
           </div>
-          
+
           {/* Action Buttons */}
           <button className="btn-primary flex items-center gap-2">
             <span className="text-lg font-light">+</span>
@@ -49,7 +50,7 @@ export default function ProjectHeader() {
             <ShareIcon />
             Share
           </button>
-          
+
           {/* View Toggle */}
           <div className="flex bg-gray-100 rounded-lg p-1 border border-gray-200">
             <button className="px-3 py-2 bg-primary-600 text-white rounded-md text-sm font-medium transition-colors shadow-sm">

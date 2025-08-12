@@ -12,7 +12,6 @@ const config: Config = {
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        // 主色调 - 紫色系 (Figma Design System)
         primary: {
           50: 'rgb(245 243 255)',
           100: 'rgb(237 233 254)',
@@ -72,6 +71,9 @@ const config: Config = {
         // 项目状态颜色
         green: {
           500: '#10B981',
+        },
+        gray: {
+          500: '#787486',
         },
         yellow: {
           500: '#F59E0B',

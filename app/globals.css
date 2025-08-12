@@ -161,8 +161,8 @@
     background-color: var(--gray-50);
     border-radius: var(--column-radius);
     padding: var(--space-6);
-    min-height: 600px;
-    width: 320px;
+    min-height: 625px;
+    width: 354px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--gray-200);
   }
@@ -170,6 +170,8 @@
   .kanban-card {
     background-color: white;
     border-radius: var(--card-radius);
+    width: 314px;
+    height: 258px;
     padding: var(--space-4);
     box-shadow:
       0px 1px 3px 0px rgba(0, 0, 0, 0.1),
