@@ -79,6 +79,18 @@ npm run dev
 - Strong typing with Zod validation on both response and request
 - Centralized Axios instance with error normalization
 
+### Set up your TMDb API key in a `.env` file:
+
+```
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+### build
+
+```bash
+npm run dev
+```
+
 ### Run
 
 ```bash

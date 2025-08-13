@@ -1,27 +1,28 @@
 // lib/http/types.ts
-import { ZodSchema, z } from "zod";
+import { ZodSchema, z } from 'zod';
 
 export interface ApiError {
   status?: number;
   message: string;
   details?: unknown;
 }
-export type ApiResult<T> =
-  | { ok: true; data: T }
-  | { ok: false; error: ApiError };
+export type ApiResult<T> = { ok: true; data: T } | { ok: false; error: ApiError };
 
-// 工具：把 Zod schema 包一层，统一返回 ApiResult
+// Utility: Wrap Zod schema, always return ApiResult
 export const makeSafeParse =
   <T>(schema: ZodSchema<T>) =>
   (input: unknown): ApiResult<T> => {
     const parsed = schema.safeParse(input);
     if (!parsed.success) {
-      return { ok: false, error: { message: "Schema validation failed", details: parsed.error.flatten() } };
+      return {
+        ok: false,
+        error: { message: 'Schema validation failed', details: parsed.error.flatten() },
+      };
     }
     return { ok: true, data: parsed.data };
   };
 
-// ---------------- TMDB v3: 电影模型 ----------------
+// ---------------- TMDB v3: Movie Model ----------------
 export const MovieSchema = z.object({
   id: z.number(),
   title: z.string(),
@@ -36,7 +37,7 @@ export const MovieSchema = z.object({
 
 export type Movie = z.infer<typeof MovieSchema>;
 
-// 列表响应：/movie/popular
+// List response: /movie/popular
 export const MovieListResponseSchema = z.object({
   page: z.number(),
   results: z.array(MovieSchema),
@@ -45,7 +46,7 @@ export const MovieListResponseSchema = z.object({
 });
 export type MovieListResponse = z.infer<typeof MovieListResponseSchema>;
 
-// ---------------- Posts API 模型 ----------------  
+// ---------------- Posts API Model ----------------
 export const PostSchema = z.object({
   id: z.number(),
   title: z.string(),
