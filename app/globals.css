@@ -75,6 +75,9 @@
     --space-8: 32px;
     --space-10: 40px;
     --space-12: 48px;
+
+    /* Add sidebar height variable for consistency */
+    --sidebar-height: 100vh;
   }
 
   body {
@@ -90,16 +93,12 @@
     gap: var(--col-gap);
   }
 
+  /* Sidebar */
   .w-sidebar {
     width: var(--sidebar-width);
   }
-
   .h-sidebar {
     height: var(--sidebar-height);
-  }
-
-  .h-header {
-    height: var(--header-height);
   }
 
   .bg-sidebar {
@@ -137,11 +136,18 @@
     color: var(--primary-600);
   }
 
+  /* Add focus style for accessibility */
+  .sidebar-item:focus,
+  .project-item:focus {
+    outline: 2px solid var(--primary-400);
+    outline-offset: 2px;
+  }
+
   .project-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-3) var(--space-4);
     color: var(--gray-700);
     border-radius: var(--space-2);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -157,16 +163,20 @@
     color: var(--primary-700);
   }
 
+  /* Kanban column */
   .kanban-column {
     background-color: var(--gray-50);
     border-radius: var(--column-radius);
     padding: var(--space-6);
     min-height: 625px;
     width: 354px;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--gray-200);
   }
 
+  /* Kanban card */
   .kanban-card {
     background-color: white;
     border-radius: var(--card-radius);
@@ -177,7 +187,9 @@
       0px 1px 3px 0px rgba(0, 0, 0, 0.1),
       0px 1px 2px 0px rgba(0, 0, 0, 0.06);
     border: 1px solid var(--gray-200);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0, 0.2, 1),
+      border-color 0.2s cubic-bezier(0.4, 0, 0, 0.2, 1);
     cursor: grab;
     position: relative;
   }
@@ -450,5 +462,16 @@
   .kanban-column-drag-over {
     background-color: var(--primary-50);
     border-color: var(--primary-200);
+  }
+
+  /* Add responsive sidebar (optional) */
+  @media (max-width: 768px) {
+    .w-sidebar {
+      width: 64px;
+    }
+    .sidebar-item span,
+    .project-item span {
+      display: none;
+    }
   }
 }

@@ -1,27 +1,24 @@
 'use client';
 
-import { LightbulbIcon } from './icons';
-
 interface Project {
   id: string;
   name: string;
   color: string;
-  active: boolean;
 }
 
 const projects: Project[] = [
-  { id: '1', name: 'Mobile App', color: 'bg-green-500', active: true },
-  { id: '2', name: 'Website Redesign', color: 'bg-yellow-500', active: false },
-  { id: '3', name: 'Design System', color: 'bg-purple-500', active: false },
-  { id: '4', name: 'Wireframes', color: 'bg-blue-500', active: false },
+  { id: '1', name: 'Mobile App', color: 'bg-green-500' },
+  { id: '2', name: 'Website Redesign', color: 'bg-yellow-500' },
+  { id: '3', name: 'Design System', color: 'bg-purple-500' },
+  { id: '4', name: 'Wireframes', color: 'bg-blue-500' },
 ];
 
 const navigationItems = [
-  { name: 'Home', icon: '/images/home.png', active: true },
-  { name: 'Messages', icon: '/images/messages.png', active: false },
-  { name: 'Tasks', icon: '/images/tasks.png', active: false },
-  { name: 'Members', icon: '/images/members.png', active: false },
-  { name: 'Settings', icon: '/images/settings.png', active: false },
+  { name: 'Home', icon: '/images/category.png' },
+  { name: 'Messages', icon: '/images/message.png' },
+  { name: 'Tasks', icon: '/images/task-square.png' },
+  { name: 'Members', icon: '/images/profile-2user.png' },
+  { name: 'Settings', icon: '/images/setting-2.png' },
 ];
 
 interface SidebarProps {
@@ -41,7 +38,10 @@ export default function Sidebar({ currentProjectId, onProjectSelect }: SidebarPr
           <nav className="flex-1 p-4">
             <div className="space-y-2">
               {navigationItems.map((item) => (
-                <div key={item.name} className={`sidebar-item ${item.active ? 'active' : ''}`}>
+                <div
+                  key={item.name}
+                  className={`sidebar-item cursor-pointer hover:bg-gray-100 active:bg-gray-200 ${item.active ? 'active' : ''}`}
+                >
                   <Image src={item.icon} alt="Logo" width={24} height={24} />
                   <span className="font-medium text-sm">{item.name}</span>
                 </div>
@@ -53,52 +53,29 @@ export default function Sidebar({ currentProjectId, onProjectSelect }: SidebarPr
 
           {/* My Projects */}
           <div className="px-4 pb-4">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                My Projects
-              </h3>
-              <button className="w-6 h-6 rounded-full flex items-center justify-center focus:outline-none border-none">
+            <div className="flex items-center justify-between w-[203px] sidebar-item">
+              <span className="text-sm">My project</span>
+              <button className="w-8 h-8 rounded-full flex items-center justify-center focus:outline-none border-none">
                 <Image src="/images/add.png" alt="Logo" width={16} height={16} />
               </button>
             </div>
-            <div className="space-y-2">
+
+            <div className="space-y-1">
               {projects.map((project) => (
                 <div key={project.id} className={`project-item`}>
-                  <div className="flex items-center gap-3">
-                    <div className={`w-2.5 h-2.5 rounded-full ${project.color}`}></div>
+                  <div className="sidebar-item cursor-pointer hover:bg-gray-100 active:bg-gray-200">
+                    <Image src="/images/Ellipse.png" alt="Logo" width={8} height={8} />
                     <span
-                      className="font-inter font-extrabold text-base text-[#0D062D] cursor-pointer"
+                      className="font-medium text-sm"
                       onClick={() => onProjectSelect(project.id)}
                     >
                       {project.name}
                     </span>
                   </div>
-                  {project.name === 'Mobile App' && (
-                    <button className="text-gray-400 hover:text-gray-600 p-1 rounded focus:outline-none border-none">
-                      ⋯
-                    </button>
-                  )}
+                  {currentProjectId === project.id && <span className="text-base">...</span>}
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        {/* Thoughts Time Widget */}
-        <div className="px-4 pb-6 border-t border-gray-200 bg-white">
-          <div className="bg-primary-50 rounded-xl p-4 border border-primary-200">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
-                <LightbulbIcon />
-              </div>
-              <h4 className="font-semibold text-primary-800">Thoughts Time</h4>
-            </div>
-            <p className="text-sm text-primary-700 mb-4 leading-relaxed">
-              We don&apos;t have any notice for you, till then you can share your thoughts with your
-              peers.
-            </p>
-            <button className="w-full bg-primary-600 text-white py-2.5 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium shadow-sm">
-              Write a message
-            </button>
           </div>
         </div>
       </div>

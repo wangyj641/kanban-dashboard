@@ -12,7 +12,7 @@ export default function Header() {
             <Image src="/images/icon.png" alt="Logo" width={24} height={24} />
           </div>
           <span className="text-xl font-bold text-gray-900">Project M</span>
-          <button className="p-0 m-0 bg-transparent border-none hover:bg-transparent focus:outline-none ml-auto">
+          <button className="p-0 m-0 bg-transparent border-none hover:bg-gray-500 active:scale-95 active:bg-gray-300 ml-auto transition-transform duration-150">
             <Image src="/images/expand.png" alt="Logo" width={26} height={20} />
           </button>
         </div>
@@ -24,9 +24,6 @@ export default function Header() {
             placeholder="Search for anything..."
             className="w-[617px] h-[44px] pl-10 pr-4 bg-[#DBDBDB] rounded-[12px] text-[14px] leading-[22px] text-gray-700 placeholder-gray-400 border-none focus:outline-none"
           />
-          <div className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
-            <Image src="/images/search-normal.png" alt="Search" width={22} height={22} />
-          </div>
         </div>
 
         {/* Right Side Icons */}

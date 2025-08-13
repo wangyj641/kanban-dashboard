@@ -1,6 +1,7 @@
 'use client';
 
 import { Draggable } from '@hello-pangea/dnd';
+import Image from 'next/image';
 
 interface KanbanCardProps {
   id: string;
@@ -54,7 +55,7 @@ export default function KanbanCard({
             {/* Priority/Status Tag and Menu */}
             <div className="kanban-card-header">
               <span className={`priority-tag ${getPriorityClass()}`}>{getPriorityText()}</span>
-              <button className="btn-icon">⋯</button>
+              <button className="btn-icon bg-transparent focus:outline-none border-none">⋯</button>
             </div>
 
             {/* Title */}
@@ -66,14 +67,16 @@ export default function KanbanCard({
             {/* Image */}
             {image && (
               <div className="kanban-card-image">
-                {id === '5' ? (
-                  <span>🌸 Pink Flowers</span>
+                {id === '3' ? (
+                  <Image src="/images/flower1.png" alt="Logo" width={281} height={110} />
+                ) : id === '5' ? (
+                  <Image src="/images/flower1.png" alt="Logo" width={281} height={110} />
                 ) : id === '6' ? (
-                  <span>🌿 Indoor Plant</span>
+                  <Image src="/images/flower1.png" alt="Logo" width={281} height={110} />
                 ) : id === '8' ? (
-                  <span>📱 Mobile Screens</span>
+                  <Image src="/images/flower1.png" alt="Logo" width={281} height={110} />
                 ) : (
-                  <span>📷 Image</span>
+                  <Image src="/images/flower1.png" alt="Logo" width={281} height={110} />
                 )}
               </div>
             )}
@@ -93,8 +96,14 @@ export default function KanbanCard({
 
             {/* Stats */}
             <div className="kanban-card-stats">
-              <span className="kanban-card-stat">💬 {comments} comments</span>
-              <span className="kanban-card-stat">📎 {files} files</span>
+              <span className="kanban-card-stat">
+                <Image src="/images/mesg1.png" alt="Logo" width={16} height={16} />
+                {comments} comments
+              </span>
+              <span className="kanban-card-stat">
+                <Image src="/images/mesg1.png" alt="Logo" width={16} height={16} />
+                {files} files
+              </span>
             </div>
           </div>
         </div>

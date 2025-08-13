@@ -5,6 +5,7 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -24,7 +25,6 @@ const config: Config = {
           800: 'rgb(91 33 182)',
           900: 'rgb(76 29 149)',
         },
-        // 语义颜色 (Figma Design System)
         success: {
           50: 'rgb(240 253 244)',
           100: 'rgb(220 252 231)',
@@ -55,7 +55,6 @@ const config: Config = {
           600: 'rgb(220 38 38)',
           700: 'rgb(185 28 28)',
         },
-        // 中性色 (Figma Design System)
         gray: {
           50: 'rgb(249 250 251)',
           100: 'rgb(243 244 246)',
@@ -68,12 +67,8 @@ const config: Config = {
           800: 'rgb(31 41 55)',
           900: 'rgb(17 24 39)',
         },
-        // 项目状态颜色
         green: {
           500: '#10B981',
-        },
-        gray: {
-          500: '#787486',
         },
         yellow: {
           500: '#F59E0B',
@@ -92,18 +87,15 @@ const config: Config = {
         },
       },
       boxShadow: {
-        // Figma Design System Shadows
         xs: '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
         sm: '0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)',
         md: '0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
         lg: '0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
         xl: '0px 20px 25px -5px rgba(0, 0, 0, 0.10), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)',
         '2xl': '0px 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        // 自定义阴影
         card: '0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)',
         soft: '0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
         sidebar: '0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)',
-        // 拖拽状态阴影
         drag: '0px 20px 25px -5px rgba(0, 0, 0, 0.10), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)',
         'drag-primary': '0px 25px 50px -12px rgba(124, 58, 237, 0.25)',
       },
@@ -118,7 +110,6 @@ const config: Config = {
         full: '9999px',
       },
       spacing: {
-        // 8px 网格系统
         '1': '4px',
         '2': '8px',
         '3': '12px',
@@ -128,7 +119,6 @@ const config: Config = {
         '8': '32px',
         '10': '40px',
         '12': '48px',
-        // 布局尺寸
         sidebar: '280px',
         header: '80px',
         col: '320px',

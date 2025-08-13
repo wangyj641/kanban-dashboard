@@ -8,10 +8,10 @@ import { useState } from 'react';
 
 function View() {
   return (
-    <div className="flex-1">
+    <>
       <ProjectHeader />
       <KanbanBoard />
-    </div>
+    </>
   );
 }
 
@@ -30,7 +30,7 @@ export default function Home() {
       <Header />
       <div className="flex">
         <Sidebar currentProjectId={currentProjectId} onProjectSelect={setCurrentProjectId} />
-        <div className="py-20 max-w-6xl mx-auto">
+        <div className="py-10 max-w-6xl mx-auto">
           <div className="mt-4">{projectPages[currentProjectId]}</div>
         </div>
       </div>
