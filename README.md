@@ -57,13 +57,19 @@ cd kanban-dashboard
 npm install
 ```
 
-3. Start the development server:
+3. Set up your TMDb API key in a `.env` file:
+
+```
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Available Scripts
 
@@ -78,18 +84,6 @@ npm run dev
 - Demo scripts: `scripts/task3-tmdb-fetch.ts`
 - Strong typing with Zod validation on both response and request
 - Centralized Axios instance with error normalization
-
-### Set up your TMDb API key in a `.env` file:
-
-```
-TMDB_API_KEY=your_tmdb_api_key
-```
-
-### build
-
-```bash
-npm run dev
-```
 
 ### Run
 

@@ -9,26 +9,26 @@ import { useKanban } from '@/store/kanban';
 export default function KanbanBoard() {
   const { columns, moveCard, reorderCardInSameColumn } = useKanban();
 
-  // 初始化数据到store
+  // Initialize data to store
   useEffect(() => {
-    // 这里可以添加初始化逻辑
+    // Initialization logic can be added here
   }, []);
 
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
 
-    // 如果没有目标位置，不做任何操作
+    // Do nothing if there is no destination
     if (!destination) return;
 
     const sourceColumnId = source.droppableId as ColumnId;
     const destinationColumnId = destination.droppableId as ColumnId;
     const cardId = draggableId;
 
-    // 如果是在同一列内重新排序
+    // Reorder within the same column
     if (sourceColumnId === destinationColumnId) {
       reorderCardInSameColumn(sourceColumnId, source.index, destination.index);
     } else {
-      // 如果是移动到不同的列
+      // Move to a different column
       moveCard(cardId, sourceColumnId, destinationColumnId, destination.index);
     }
   };
