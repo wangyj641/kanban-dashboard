@@ -1,5 +1,3 @@
-# Task 2 – Next.js (Web)
-
 # Kanban Dashboard - Project Management Tool
 
 A modern, responsive project management dashboard built with Next.js, TypeScript, and TailwindCSS.
@@ -77,16 +75,3 @@ npm run dev
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
-
-# Task 3 – Axios + TypeScript (No UI)
-
-- Location: `lib/http/` (client, types, endpoints)
-- Demo scripts: `scripts/task3-tmdb-fetch.ts`
-- Strong typing with Zod validation on both response and request
-- Centralized Axios instance with error normalization
-
-### Run
-
-```bash
-npm run task3:tmdb
-```
